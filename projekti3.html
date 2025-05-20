@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Jääkiekkotulos</h1>
+
+    <div>
+        </div>
+            <p id="a_joukkueen_maalit">0</p>
+            <button onclick="lisaaA()">lisää maali A</button>
+        </div>
+            <p id="b_joukkueen_maalit">0</p>
+            <button onclick="lisaaB()">lisää maali B</button>
+        </div>
+    </div>
+        <button onclick="nollaa()">Nollaa</button>
+    
+</body>
+
+<script>
+
+    var a_maalit = 0
+    var b_maalit = 0
+
+    function lisaaA() {
+        a_maalit++
+        document.getElementById("a_joukkueen_maalit").innerHTML = a_maalit
+    }
+
+    function lisaaB() {
+        b_maalit++
+        document.getElementById("b_joukkueen_maalit").innerHTML = b_maalit
+    }
+
+    function nollaa() {
+        a_maalit = 0
+        b_maalit = 0
+        paivita()
+    }
+
+    function paivita() {
+        document.getElementById("a_joukkueen_maalit").innerHTML = a_maalit
+        document.getElementById("b_joukkueen_maalit").innerHTML = b_maalit
+    }
+
+</script>
+
+</html>
