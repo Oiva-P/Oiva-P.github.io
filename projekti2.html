@@ -6,15 +6,18 @@
     <title>Projekti 2</title>
     <style>
         #kuva {
-            max-height: 300px;
+            max-height: 200px;
         }
     </style>
 </head>
 <body>
-    <img id="kuva" src="kuvat/bobrito1.jpg">
-
-    <button onclick="seuraavaKuva()">seuraava kuva</button>
-    <button onclick="edellinenKuva()">edellinen kuva</button>
+    <img id="kuva" src="kuvat/bobrito1.jpg"/>
+    <br />
+    <button onclick="vaihdaKuva(1)">Seuraava kuva</button>
+    <button onclick="vaihdaKuva(-1)">Edellinen kuva</button>
+    <button onclick="ekaKuva()">Ensimmäinen kuva</button>
+    <button onclick="vikaKuva()">Viimeinen kuva</button>
+    <button onclick="jokuKuva()">Random kuva</button>
 </body>
 <script>
     var kuvalista = ["bobrito1.jpg",
@@ -22,6 +25,23 @@
                      "lirili1.jpg",
                      "tung1.jpg",
                      "penguin1.jpg",
+                     "bombardino1.jpg",
+                     "tralalero1.jpg",
+                     "glorbo1.jpg",
+                     "frulli1.jpg",
+                     "guzini1.jpg",
+                     "boneca1.jpg",
+                     "burbaloni1.jpg",
+                     "cappuccino1.jpg",
+                     "frigo1.jpg",
+                     "saturno1.jpg",
+                     "guzini1.jpg",
+                     "trulimero1.jpg",
+                     "blueberrini1.jpg",
+                     "trippi1.jpg",
+                     "chimp1.jpg",
+                     "cocofanto1.jpg"
+
     ]
     var kuvaelementti = document.getElementById("kuva")
 
@@ -29,13 +49,31 @@
 
     var kuvaNumero = 0
 
-    function seuraavaKuva() {
-        kuvaNumero = kuvaNumero + 1
+    function vaihdaKuva(muutos) {
+        if (kuvaNumero + muutos <= kuvalista.length - 1 && kuvaNumero + muutos >= 0) {
+        kuvaNumero = kuvaNumero + muutos
+    }
         kuvaelementti.src = "kuvat/" + kuvalista[kuvaNumero]
     }
 
     function edellinenKuva() {
         kuvaNumero = kuvaNumero - 1
+        kuvaelementti.src = "kuvat/" + kuvalista[kuvaNumero]
+    }
+
+
+    function ekaKuva() {
+        kuvaNumero = kuvaNumero = 0
+        kuvaelementti.src = "kuvat/" + kuvalista[kuvaNumero]
+    }
+
+    function vikaKuva() {
+        kuvaNumero = kuvalista.length - 1
+        kuvaelementti.src = "kuvat/" + kuvalista[kuvaNumero]
+    }
+
+    function jokuKuva() {
+        kuvaNumero = Math.floor(Math.random() * kuvalista.length)
         kuvaelementti.src = "kuvat/" + kuvalista[kuvaNumero]
     }
 
